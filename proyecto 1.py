@@ -52,6 +52,6 @@ class Inventario:
     def Agregar(self):
         pass
 
-
+main()
 
 
