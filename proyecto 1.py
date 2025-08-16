@@ -7,6 +7,30 @@ def main():
     print("5. modificar prpoducto")
     print("6. salir ")
 
+    op = 0
+    while op != 6:
+        try:
+            op=int(input("ingrese opcion a ejecutar"))
+            match op:
+                case 1:
+                    pass
+                case 2:
+                    pass
+                case 3:
+                    pass
+                case 4:
+                    pass
+                case 5:
+                    pass
+                case 6:
+                    print("fin de programa")
+                case _:
+                    print("opcion no valida")
+        except ValueError:
+            print("ingrese opcion valida")
+
+
+
 class Producto:
     def __init__(self, codigo,nombre,categoria,precio,stock):
         self.codigo=codigo
@@ -27,6 +51,7 @@ class Buscar:
 class Inventario:
     def Agregar(self):
         pass
+
 
 
 
