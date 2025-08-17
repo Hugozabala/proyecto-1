@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae77fb26-5346-489c-aa27-abe6529b43b0" name="Changes" comment="menu1">
+    <list default="true" id="ae77fb26-5346-489c-aa27-abe6529b43b0" name="Changes" comment="menu2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proyecto 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto 1.py" afterDir="false" />
     </list>
@@ -96,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755315043015</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="menu2">
+      <option name="closed" value="true" />
+      <created>1755405611437</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1755405611437</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,6 +133,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="menu" />
     <MESSAGE value="menu1" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu1" />
+    <MESSAGE value="menu2" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu2" />
   </component>
 </project>

@@ -1,5 +1,5 @@
 Dic_inventario={}
-def main():
+def main(inve):
     print("menu principal")
     print("1. ingreso de producto")
     print("2. inventario")
@@ -20,6 +20,8 @@ def main():
                         print("\n Inventario actual:")
                         for producto in Dic_inventario.values():
                             producto.Mostrar()
+                     else:
+                          print(" Inventario vacío.")
                 case 3:
                     pass
                 case 4:
@@ -42,12 +44,6 @@ class Producto:
         self.categoria=categoria
         self.precio=precio
         self.stock=stock
-
-    def actualizar(self, precio=None, stock=None):
-        if precio is not None:
-            self.precio = precio
-        if stock is not None:
-            self.stock = stock
 
     def Mostrar(self):
         print(f"Codigo:{self.codigo}- Nombre: {self.nombre}- Categoria: {self.categoria}- Precio:{self.precio}- Stock: {self.stock}")
@@ -76,7 +72,15 @@ class Inventario:
             except ValueError:
                 print("Error: Ingresaste un dato inválido.")
 
+    def actualizar(self, precio=None, stock=None):
+        if precio is not None:
+            self.precio = precio
+        if stock is not None:
+            self.stock = stock
 
-main()
+
+
+
 inven=Inventario()
+main(inven)
 
