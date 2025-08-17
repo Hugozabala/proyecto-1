@@ -1,3 +1,4 @@
+Dic_inventario={}
 def main():
     print("menu principal")
     print("1. ingreso de producto")
@@ -13,9 +14,12 @@ def main():
             op=int(input("ingrese opcion a ejecutar"))
             match op:
                 case 1:
-                    pass
+                     inven.Agregar()
                 case 2:
-                    pass
+                     if Dic_inventario:
+                        print("\n Inventario actual:")
+                        for producto in Dic_inventario.values():
+                            producto.Mostrar()
                 case 3:
                     pass
                 case 4:
@@ -39,6 +43,11 @@ class Producto:
         self.precio=precio
         self.stock=stock
 
+    def actualizar(self, precio=None, stock=None):
+        if precio is not None:
+            self.precio = precio
+        if stock is not None:
+            self.stock = stock
 
     def Mostrar(self):
         print(f"Codigo:{self.codigo}- Nombre: {self.nombre}- Categoria: {self.categoria}- Precio:{self.precio}- Stock: {self.stock}")
@@ -50,8 +59,24 @@ class Buscar:
     pass
 class Inventario:
     def Agregar(self):
-        pass
+            try:
+                cod = input("Ingrese código del producto: ")
+                if cod in Dic_inventario:
+                    print(" Ya existe un producto con ese código.")
+                    return
+
+                nom = input("Ingrese nombre del producto: ")
+                cat = input("Ingrese categoría: ")
+                pre = float(input("Ingrese precio del producto: "))
+                sto = int(input("Ingrese cantidad del producto: "))
+
+                p = Producto(cod, nom, cat, pre, sto)
+                Dic_inventario[cod] = p
+                print(" Producto agregado con éxito.")
+            except ValueError:
+                print("Error: Ingresaste un dato inválido.")
+
 
 main()
-
+inven=Inventario()
 
