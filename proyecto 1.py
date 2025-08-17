@@ -78,6 +78,19 @@ class Inventario:
         if stock is not None:
             self.stock = stock
 
+    def eliminar(self,codigo=None):
+        eli=input("ingrese codigo de producto a eliminar")
+        if eli   not in Dic_inventario:
+            print("no existe en dicionario")
+        else:
+            eliminado=Dic_inventario.pop(eli)
+            print(f"producto Eliminado{eliminado}")
+            print("eliminado con exito")
+
+
+
+
+
 
 
 
