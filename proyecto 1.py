@@ -1,5 +1,8 @@
 Dic_inventario={}
 def main(inve):
+    inven = Inventario()
+    order = Ordenar()
+    bus = Buscar()
     print("Menu principal")
     print("1. Ingreso de producto")
     print("2. Listar Inventario")
@@ -28,16 +31,27 @@ def main(inve):
                     elif ordenar == 3:
                         listaordenada=[order.quicksort(lista_stock)]
 
-                    if len(listaordenada) == 0:
+                    if not listaordenada:
                         print("\n Inventario actual:")
                         for producto in Dic_inventario.values():
                             producto.Mostrar()
                     else:
                         print(" Inventario vacío.")
 
-
                 case 3:
-                    pass
+                    SubmenuBuscador()
+                    buscar= int(input("Ingrese una opción"))
+                    valor_a_buscar = input("Ingrese valor a buscar")
+                    lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
+                    lista_codigo = list(Dic_inventario.keys())
+                    lista_categoria= [inventario["categoria"] for inventario in Dic_inventario.values()]
+                    if buscar==1:
+                        bus.Buscardor(lista_codigo,buscar,valor_a_buscar)
+                    elif buscar==2:
+                        bus.Buscardor(lista_nombre, buscar, valor_a_buscar)
+                    elif buscar==3:
+                        bus.Buscardor(lista_categoria, buscar, valor_a_buscar)
+
                 case 4:
                     pass
                 case 5:
@@ -77,8 +91,22 @@ class Ordenar:
         return quick_sort(menores) + iguales + quick_sort(mayores)
 
 class Buscar:
-    def Buscar(self):
-        pass
+    def Buscardor(self, lista, criterio, valor):
+        resultados = []
+        valor = valor.lower().strip()
+
+        for producto in lista:
+            if criterio == 1:
+                if producto.codigo == valor:
+                    resultados.append(producto)
+            elif criterio == 2:
+                if valor in producto.nombre.lower():
+                    resultados.append(producto)
+            elif criterio == 3:
+                if valor in producto.categoria.lower():
+                    resultados.append(producto)
+
+        return resultados
 
 class Inventario:
     def Agregar(self):
@@ -120,7 +148,12 @@ def Submenu():
     print("2. Por Precio")
     print("3. Por Stock")
 
-inven=Inventario()
-order=Ordenar()
+def SubmenuBuscador():
+    print("Formas de buscar el producto")
+    print("1. Por Código")
+    print("2. Por Nombre")
+    print("3. Por Categoria")
+
+
 main(inven)
 
