@@ -1,17 +1,18 @@
 Dic_inventario={}
 def main(inve):
-    print("menu principal")
-    print("1. ingreso de producto")
-    print("2. inventario")
-    print("3. buscar producto")
-    print("4. eliminar producto")
-    print("5. modificar prpoducto")
-    print("6. salir ")
+    print("Menu principal")
+    print("1. Ingreso de producto")
+    print("2. Mostrar Inventario")
+    print("3. Buscar producto")
+    print("4. Eliminar producto")
+    print("5. Modificar producto")
+    print("6. Ordenar Inventario")
+    print("7. Salir ")
 
     op = 0
     while op != 6:
         try:
-            op=int(input("ingrese opcion a ejecutar"))
+            op=int(input("Ingrese opcion a ejecutar"))
             match op:
                 case 1:
                      inven.Agregar()
@@ -29,12 +30,16 @@ def main(inve):
                 case 5:
                     pass
                 case 6:
-                    print("fin de programa")
-                case _:
-                    print("opcion no valida")
-        except ValueError:
-            print("ingrese opcion valida")
 
+                    pass
+                case 7:
+                    print("Fin de programa")
+                case _:
+                    print("Opcion no valida")
+        except ValueError:
+            print("Ingrese opcion valida")
+        except Exception:
+            print(f"Error: {Exception}")
 
 
 class Producto:
@@ -99,7 +104,9 @@ class Inventario:
             print(f"producto Eliminado{eliminado}")
             print("eliminado con exito")
 
-
+def Submenu():
+    print("Formas de ordenar el inventario")
+    print("1. Por Nombre")
 
 
 
