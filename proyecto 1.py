@@ -16,12 +16,26 @@ def main(inve):
                 case 1:
                      inven.Agregar()
                 case 2:
-                     if Dic_inventario:
+                    Submenu()
+                    ordenar=int(input("Ingrese una opción"))
+                    lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
+                    lista_stock = [inventario["stock"] for inventario in Dic_inventario.values()]
+                    lista_precio = [inventario["precio"] for inventario in Dic_inventario.values()]
+                    if ordenar == 1:
+                        listaordenada=[order.quicksort(lista_nombre)]
+                    elif ordenar == 2:
+                        listaordenada=[order.quicksort(lista_precio)]
+                    elif ordenar == 3:
+                        listaordenada=[order.quicksort(lista_stock)]
+
+                    if len(listaordenada) == 0:
                         print("\n Inventario actual:")
                         for producto in Dic_inventario.values():
                             producto.Mostrar()
-                     else:
-                          print(" Inventario vacío.")
+                    else:
+                        print(" Inventario vacío.")
+
+
                 case 3:
                     pass
                 case 4:
@@ -51,7 +65,7 @@ class Producto:
 
 
 class Ordenar:
-    def quicksort(self, lista, criterio):
+    def quicksort(self, lista):
         if len(lista) <= 1:
             return lista
         pivote = lista[0]
@@ -103,12 +117,10 @@ class Inventario:
 def Submenu():
     print("Formas de ordenar el inventario")
     print("1. Por Nombre")
-
-
-
-
-
+    print("2. Por Precio")
+    print("3. Por Stock")
 
 inven=Inventario()
+order=Ordenar()
 main(inven)
 
