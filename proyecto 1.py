@@ -2,12 +2,11 @@ Dic_inventario={}
 def main(inve):
     print("Menu principal")
     print("1. Ingreso de producto")
-    print("2. Mostrar Inventario")
+    print("2. Listar Inventario")
     print("3. Buscar producto")
     print("4. Eliminar producto")
     print("5. Modificar producto")
-    print("6. Ordenar Inventario")
-    print("7. Salir ")
+    print("6. Salir ")
 
     op = 0
     while op != 6:
@@ -30,9 +29,6 @@ def main(inve):
                 case 5:
                     pass
                 case 6:
-
-                    pass
-                case 7:
                     print("Fin de programa")
                 case _:
                     print("Opcion no valida")
