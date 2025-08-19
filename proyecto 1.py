@@ -3,7 +3,6 @@ def main():
     inven = Inventario()
     order = Ordenar()
     bus = Buscar()
-
     op = 0
     while op != 6:
         try:
@@ -120,7 +119,7 @@ class Inventario:
                 cat = input("Ingrese categoría: ")
                 pre = float(input("Ingrese precio del producto: "))
                 if pre <=0:
-                    print("precio invalido")
+                    print("Precio invalido")
                 else:
                      sto = int(input("Ingrese cantidad del producto: "))
 
