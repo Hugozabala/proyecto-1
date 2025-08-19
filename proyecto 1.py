@@ -141,8 +141,8 @@ class Inventario:
             print("No existe ese producto en en Inventario")
         else:
             eliminado=Dic_inventario.pop(eli)
-            print(f"producto Eliminado {eliminado}")
-            print("eliminado con exito")
+            print(f"Producto Eliminado {eliminado}")
+            print("Eliminado con exito")
 
 def Submenu():
     print("\nFormas de ordenar el inventario")
