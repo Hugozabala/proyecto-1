@@ -62,8 +62,8 @@ def main():
                     print("Opcion no valida  ")
         except ValueError:
             print("Ingrese opcion valida  ")
-        except Exception:
-            print(f"Error: {Exception}")
+        except Exception as a:
+            print(f"Error: {a}")
 
 
 class Producto:
