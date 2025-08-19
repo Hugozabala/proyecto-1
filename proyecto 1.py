@@ -121,7 +121,7 @@ class Inventario:
                 else:
                      sto = int(input("Ingrese cantidad del producto: "))
 
-                p = Producto(cod, nom, cat, pre, sto)
+                p = Producto(cod, nom.lower(), cat, pre, sto)
                 Dic_inventario[cod] = p
                 print(" Producto agregado con éxito.")
             except ValueError:
