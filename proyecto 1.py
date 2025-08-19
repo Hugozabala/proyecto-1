@@ -136,12 +136,12 @@ class Inventario:
             self.stock = stock
 
     def eliminar(self,codigo=None):
-        eli=input("ingrese codigo de producto a eliminar")
+        eli=input("Ingrese codigo de producto a eliminar")
         if eli   not in Dic_inventario:
-            print("no existe en dicionario")
+            print("No existe ese producto en en Inventario")
         else:
             eliminado=Dic_inventario.pop(eli)
-            print(f"producto Eliminado{eliminado}")
+            print(f"producto Eliminado {eliminado}")
             print("eliminado con exito")
 
 def Submenu():
