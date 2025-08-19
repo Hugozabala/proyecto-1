@@ -88,7 +88,7 @@ class Ordenar:
         iguales = [x for x in lista if x == pivote]
         mayores = [x for x in lista[1:] if x > pivote]
 
-        return quick_sort(menores) + iguales + quick_sort(mayores)
+        return self.quicksort(menores) + iguales + self.quicksort(mayores)
 
 class Buscar:
     def Buscardor(self, lista, criterio, valor):
@@ -155,5 +155,5 @@ def SubmenuBuscador():
     print("3. Por Categoria")
 
 
-main(inven)
+main()
 
