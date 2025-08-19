@@ -3,7 +3,7 @@ def main():
     inven = Inventario()
     order = Ordenar()
     bus = Buscar()
-
+    menus = Menus()
     op = 0
     while op != 6:
         try:
@@ -19,7 +19,7 @@ def main():
                 case 1:
                      inven.Agregar()
                 case 2:
-                    Submenu()
+                    menus.Submenu()
                     ordenar=int(input("Ingrese una opción"))
                     lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
                     lista_stock = [inventario["stock"] for inventario in Dic_inventario.values()]
@@ -39,7 +39,7 @@ def main():
                         print(" Inventario vacío.")
 
                 case 3:
-                    SubmenuBuscador()
+                    menus.SubmenuBuscador()
                     buscar= int(input("Ingrese una opción"))
                     valor_a_buscar = input("Ingrese valor a buscar")
                     lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
@@ -148,17 +148,20 @@ class Inventario:
             print(f"producto Eliminado{eliminado}")
             print("eliminado con exito")
 
-def Submenu():
-    print("\nFormas de ordenar el inventario")
-    print("1. Por Nombre")
-    print("2. Por Precio")
-    print("3. Por Stock")
 
-def SubmenuBuscador():
-    print("\nFormas de buscar el producto")
-    print("1. Por Código")
-    print("2. Por Nombre")
-    print("3. Por Categoria")
+class Menus:
+    def Submenu(self):
+        print("\nFormas de ordenar el inventario")
+        print("1. Por Nombre")
+        print("2. Por Precio")
+        print("3. Por Stock")
+
+    def SubmenuBuscador(self):
+        print("\nFormas de buscar el producto")
+        print("1. Por Código")
+        print("2. Por Nombre")
+        print("3. Por Categoria")
+
 
 
 main()
