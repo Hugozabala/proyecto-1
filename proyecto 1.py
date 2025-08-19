@@ -113,7 +113,6 @@ class Inventario:
             try:
                 agre=int(input("cuantos productos desea ingresar"))
                 for a in range(agre):
-
                      cod = input("Ingrese código del producto: ")
                      if cod in Dic_inventario:
                         print(" Ya existe un producto con ese código.")
