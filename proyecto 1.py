@@ -189,7 +189,7 @@ class Inventario:
             print("no existe en dicionario")
         else:
             eliminado=Dic_inventario.pop(eli)
-            print(f"producto Eliminado{eliminado}")
+            print(f"producto Eliminado{eliminado.nombre}")
             print("eliminado con exito")
 
 def Submenu():
