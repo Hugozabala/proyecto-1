@@ -111,22 +111,24 @@ class Buscar:
 class Inventario:
     def Agregar(self):
             try:
-                cod = input("Ingrese código del producto: ")
-                if cod in Dic_inventario:
-                    print(" Ya existe un producto con ese código.")
-                    return
+                ingr=int(input("ingrese cuantos productos desea ingresar"))
+                for a in range(ingr):
+                     cod = input("Ingrese código del producto: ")
+                     if cod in Dic_inventario:
+                        print(" Ya existe un producto con ese código.")
+                        return
 
-                nom = input("Ingrese nombre del producto: ")
-                cat = input("Ingrese categoría: ")
-                pre = float(input("Ingrese precio del producto: "))
-                if pre <=0:
-                    print("precio invalido")
-                else:
-                     sto = int(input("Ingrese cantidad del producto: "))
+                     nom = input("Ingrese nombre del producto: ")
+                     cat = input("Ingrese categoría: ")
+                     pre = float(input("Ingrese precio del producto: "))
+                     if pre <=0:
+                           print("precio invalido")
+                     else:
+                                sto = int(input("Ingrese cantidad del producto: "))
 
-                p = Producto(cod, nom, cat, pre, sto)
-                Dic_inventario[cod] = p
-                print(" Producto agregado con éxito.")
+                                p = Producto(cod, nom, cat, pre, sto)
+                                Dic_inventario[cod] = p
+                                print(" Producto agregado con éxito.")
             except ValueError:
                 print("Error: Ingresaste un dato inválido.")
 
