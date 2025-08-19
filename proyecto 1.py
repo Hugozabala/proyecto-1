@@ -20,7 +20,7 @@ def main():
                      inven.Agregar()
                 case 2:
                     menus.Submenu()
-                    ordenar=int(input("Ingrese una opción"))
+                    ordenar=int(input("Ingrese una opción:  "))
                     lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
                     lista_stock = [inventario["stock"] for inventario in Dic_inventario.values()]
                     lista_precio = [inventario["precio"] for inventario in Dic_inventario.values()]
@@ -40,28 +40,28 @@ def main():
 
                 case 3:
                     menus.SubmenuBuscador()
-                    buscar= int(input("Ingrese una opción"))
+                    buscar= int(input("Ingrese una opción: "))
                     valor_a_buscar = input("Ingrese valor a buscar")
                     lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
                     lista_codigo = list(Dic_inventario.keys())
                     lista_categoria= [inventario["categoria"] for inventario in Dic_inventario.values()]
                     if buscar==1:
-                        bus.Buscardor(lista_codigo,buscar,valor_a_buscar)
+                        bus.Buscardor(lista_codigo,valor_a_buscar)
                     elif buscar==2:
-                        bus.Buscardor(lista_nombre, buscar, valor_a_buscar)
+                        bus.Buscardor(lista_nombre, valor_a_buscar)
                     elif buscar==3:
-                        bus.Buscardor(lista_categoria, buscar, valor_a_buscar)
+                        bus.Buscardor(lista_categoria, valor_a_buscar)
 
                 case 4:
                     inven.eliminar()
                 case 5:
                     inven.actualizar()
                 case 6:
-                    print("Fin de programa")
+                    print("Fin de programa  ")
                 case _:
-                    print("Opcion no valida")
+                    print("Opcion no valida  ")
         except ValueError:
-            print("Ingrese opcion valida")
+            print("Ingrese opcion valida  ")
         except Exception:
             print(f"Error: {Exception}")
 
@@ -91,21 +91,16 @@ class Ordenar:
         return self.quicksort(menores) + iguales + self.quicksort(mayores)
 
 class Buscar:
-    def Buscardor(self, lista, criterio, valor):
+    def Buscardor(self, lista, valor):
         resultados = []
         valor = valor.lower().strip()
-
         for producto in lista:
-            if criterio == 1:
-                if producto.codigo == valor:
-                    resultados.append(producto)
-            elif criterio == 2:
-                if valor in producto.nombre.lower():
-                    resultados.append(producto)
-            elif criterio == 3:
-                if valor in producto.categoria.lower():
-                    resultados.append(producto)
-
+            if producto == valor:
+                resultados.append(producto)
+            if valor in producto.lower():
+                resultados.append(producto)
+            if valor in producto.lower():
+                resultados.append(producto)
         return resultados
 
 class Inventario:
