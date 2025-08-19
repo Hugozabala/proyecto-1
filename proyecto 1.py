@@ -18,40 +18,54 @@ def main():
             match op:
                 case 1:
                      inven.Agregar()
-                case 2:
-                    Submenu()
-                    ordenar=int(input("Ingrese una opción"))
-                    lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
-                    lista_stock = [inventario["stock"] for inventario in Dic_inventario.values()]
-                    lista_precio = [inventario["precio"] for inventario in Dic_inventario.values()]
-                    if ordenar == 1:
-                        listaordenada=[order.quicksort(lista_nombre)]
-                    elif ordenar == 2:
-                        listaordenada=[order.quicksort(lista_precio)]
-                    elif ordenar == 3:
-                        listaordenada=[order.quicksort(lista_stock)]
 
-                    if not listaordenada:
-                        print("\n Inventario actual:")
-                        for producto in Dic_inventario.values():
-                            producto.Mostrar()
+                case 2:
+                    if not Dic_inventario:
+                        print("\n Inventario vacío.")
                     else:
-                        print(" Inventario vacío.")
+                        Submenu()
+                        ordenar = int(input("Ingrese una opción: "))
+
+                        # listas de atributos a ordenar
+                        lista_nombre = [p.nombre for p in Dic_inventario.values()]
+                        lista_stock = [p.stock for p in Dic_inventario.values()]
+                        lista_precio = [p.precio for p in Dic_inventario.values()]
+
+                        if ordenar == 1:
+                            listaordenada = order.quicksort(lista_nombre)
+                        elif ordenar == 2:
+                            listaordenada = order.quicksort(lista_precio)
+                        elif ordenar == 3:
+                            listaordenada = order.quicksort(lista_stock)
+                        else:
+                            print("Opción inválida.")
+                            listaordenada = []
+
+                        print("\nInventario ordenado:\n")
+                        for valor in listaordenada:
+                            for producto in Dic_inventario.values():
+                                if (ordenar == 1 and producto.nombre == valor) or \
+                                        (ordenar == 2 and producto.precio == valor) or \
+                                        (ordenar == 3 and producto.stock == valor):
+                                    producto.Mostrar()
+
 
                 case 3:
-                    SubmenuBuscador()
-                    buscar= int(input("Ingrese una opción"))
-                    valor_a_buscar = input("Ingrese valor a buscar")
-                    lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
-                    lista_codigo = list(Dic_inventario.keys())
-                    lista_categoria= [inventario["categoria"] for inventario in Dic_inventario.values()]
-                    if buscar==1:
-                        bus.Buscardor(lista_codigo,buscar,valor_a_buscar)
-                    elif buscar==2:
-                        bus.Buscardor(lista_nombre, buscar, valor_a_buscar)
-                    elif buscar==3:
-                        bus.Buscardor(lista_categoria, buscar, valor_a_buscar)
+                    if not Dic_inventario:
+                        print("\nInventario vacío.")
+                    else:
+                        SubmenuBuscador()
+                        buscar = int(input("Ingrese una opción: "))
+                        valor_a_buscar = input("Ingrese valor a buscar: ")
 
+                        resultados = bus.Buscardor(list(Dic_inventario.values()), buscar, valor_a_buscar)
+
+                        if resultados:
+                            print("\nResultados de la búsqueda:\n")
+                            for producto in resultados:
+                                producto.Mostrar()
+                        else:
+                            print("No se encontraron productos con ese criterio.")
                 case 4:
                     inven.eliminar()
                 case 5:
