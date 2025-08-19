@@ -19,24 +19,33 @@ def main():
                 case 1:
                      inven.Agregar()
                 case 2:
-                    menus.Submenu()
-                    ordenar=int(input("Ingrese una opción:  "))
-                    lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
-                    lista_stock = [inventario["stock"] for inventario in Dic_inventario.values()]
-                    lista_precio = [inventario["precio"] for inventario in Dic_inventario.values()]
-                    if ordenar == 1:
-                        listaordenada=[order.quicksort(lista_nombre)]
-                    elif ordenar == 2:
-                        listaordenada=[order.quicksort(lista_precio)]
-                    elif ordenar == 3:
-                        listaordenada=[order.quicksort(lista_stock)]
-
-                    if not listaordenada:
-                        print("\n Inventario actual:")
-                        for producto in Dic_inventario.values():
-                            producto.Mostrar()
+                    if not Dic_inventario:
+                        print("\n Inventario vacío.")
                     else:
-                        print(" Inventario vacío.")
+                        menus.Submenu()
+                        ordenar = int(input("Ingrese una opción: "))
+
+                        lista_nombre = [p.nombre for p in Dic_inventario.values()]
+                        lista_stock = [p.stock for p in Dic_inventario.values()]
+                        lista_precio = [p.precio for p in Dic_inventario.values()]
+
+                        if ordenar == 1:
+
+                            listaordenada = order.quicksort(lista_nombre)
+                        elif ordenar == 2:
+                            listaordenada = order.quicksort(lista_precio)
+                        elif ordenar == 3:
+                            listaordenada = order.quicksort(lista_stock)
+                        else:
+                            print("Opción inválida.")
+                            listaordenada = []
+
+                        print("\nInventario ordenado:\n")
+                        for valor in listaordenada:
+                            for producto in Dic_inventario.values():
+                                    if (ordenar == 1 and producto.nombre == valor) or (ordenar == 2 and producto.precio == valor) or(ordenar == 3 and producto.stock == valor):
+                                        producto.Mostrar()
+
 
                 case 3:
                     menus.SubmenuBuscador()
