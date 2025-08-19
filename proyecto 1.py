@@ -24,13 +24,10 @@ def main():
                     else:
                         menus.Submenu()
                         ordenar = int(input("Ingrese una opción: "))
-
                         lista_nombre = [p.nombre for p in Dic_inventario.values()]
                         lista_stock = [p.stock for p in Dic_inventario.values()]
                         lista_precio = [p.precio for p in Dic_inventario.values()]
-
                         if ordenar == 1:
-
                             listaordenada = order.quicksort(lista_nombre)
                         elif ordenar == 2:
                             listaordenada = order.quicksort(lista_precio)
