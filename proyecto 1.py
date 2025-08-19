@@ -147,11 +147,41 @@ class Inventario:
             except ValueError:
                 print("Error: Ingresaste un dato inválido.")
 
-    def actualizar(self, precio=None, stock=None):
-        if precio is not None:
-            self.precio = precio
-        if stock is not None:
-            self.stock = stock
+    def actualizar(self):
+        codigo = input("Ingrese el código del producto a actualizar: ")
+        if codigo not in Dic_inventario:
+            print("No existe un producto con ese código.")
+            return
+
+        producto = Dic_inventario[codigo]
+        print("\nProducto actual:")
+        producto.Mostrar()
+
+        try:
+            nuevo_precio = input("Ingrese nuevo precio (deje vacío para no cambiar): ")
+            nuevo_stock = input("Ingrese nuevo stock (deje vacío para no cambiar): ")
+
+            if nuevo_precio.strip() != "":
+                nuevo_precio = float(nuevo_precio)
+                if nuevo_precio > 0:
+                    producto.precio = nuevo_precio
+                else:
+                    print("Precio inválido, no se actualizó.")
+
+            if nuevo_stock.strip() != "":
+                nuevo_stock = int(nuevo_stock)
+                if nuevo_stock >= 0:
+                    producto.stock = nuevo_stock
+                else:
+                    print("Stock inválido, no se actualizó.")
+
+            print("\nProducto actualizado con éxito:")
+            producto.Mostrar()
+
+        except ValueError:
+            print("Error: dato inválido, no se realizaron cambios.")
+
+
 
     def eliminar(self,codigo=None):
         eli=input("ingrese codigo de producto a eliminar")

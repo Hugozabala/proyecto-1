@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae77fb26-5346-489c-aa27-abe6529b43b0" name="Changes" comment="menu 6">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ae77fb26-5346-489c-aa27-abe6529b43b0" name="Changes" comment="menu 7">
       <change beforePath="$PROJECT_DIR$/proyecto 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto 1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755565629352</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="menu 7">
+      <option name="closed" value="true" />
+      <created>1755578155013</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1755578155013</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +255,7 @@
     <MESSAGE value="menu4" />
     <MESSAGE value="menu5" />
     <MESSAGE value="menu 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu 6" />
+    <MESSAGE value="menu 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu 7" />
   </component>
 </project>
