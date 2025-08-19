@@ -3,17 +3,17 @@ def main():
     inven = Inventario()
     order = Ordenar()
     bus = Buscar()
-    print("Menu principal")
-    print("1. Ingreso de producto")
-    print("2. Listar Inventario")
-    print("3. Buscar producto")
-    print("4. Eliminar producto")
-    print("5. Modificar producto")
-    print("6. Salir ")
 
     op = 0
     while op != 6:
         try:
+            print("\nMenu principal")
+            print("1. Ingreso de producto")
+            print("2. Listar Inventario")
+            print("3. Buscar producto")
+            print("4. Eliminar producto")
+            print("5. Modificar producto")
+            print("6. Salir ")
             op=int(input("Ingrese opcion a ejecutar:   "))
             match op:
                 case 1:
@@ -143,13 +143,13 @@ class Inventario:
             print("eliminado con exito")
 
 def Submenu():
-    print("Formas de ordenar el inventario")
+    print("\nFormas de ordenar el inventario")
     print("1. Por Nombre")
     print("2. Por Precio")
     print("3. Por Stock")
 
 def SubmenuBuscador():
-    print("Formas de buscar el producto")
+    print("\nFormas de buscar el producto")
     print("1. Por Código")
     print("2. Por Nombre")
     print("3. Por Categoria")
