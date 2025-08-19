@@ -119,7 +119,10 @@ class Inventario:
                 nom = input("Ingrese nombre del producto: ")
                 cat = input("Ingrese categoría: ")
                 pre = float(input("Ingrese precio del producto: "))
-                sto = int(input("Ingrese cantidad del producto: "))
+                if pre <=0:
+                    print("precio invalido")
+                else:
+                     sto = int(input("Ingrese cantidad del producto: "))
 
                 p = Producto(cod, nom, cat, pre, sto)
                 Dic_inventario[cod] = p
