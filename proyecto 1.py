@@ -53,9 +53,9 @@ def main(inve):
                         bus.Buscardor(lista_categoria, buscar, valor_a_buscar)
 
                 case 4:
-                    pass
+                    inven.eliminar()
                 case 5:
-                    pass
+                    inven.actualizar()
                 case 6:
                     print("Fin de programa")
                 case _:
