@@ -111,10 +111,13 @@ class Buscar:
 class Inventario:
     def Agregar(self):
             try:
-                cod = input("Ingrese código del producto: ")
-                if cod in Dic_inventario:
-                    print(" Ya existe un producto con ese código.")
-                    return
+                agre=int(input("cuantos productos desea ingresar"))
+                for a in range(agre):
+
+                     cod = input("Ingrese código del producto: ")
+                     if cod in Dic_inventario:
+                        print(" Ya existe un producto con ese código.")
+                        return
 
                 nom = input("Ingrese nombre del producto: ")
                 cat = input("Ingrese categoría: ")
