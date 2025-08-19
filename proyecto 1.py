@@ -14,7 +14,7 @@ def main():
     op = 0
     while op != 6:
         try:
-            op=int(input("Ingrese opcion a ejecutar"))
+            op=int(input("Ingrese opcion a ejecutar:   "))
             match op:
                 case 1:
                      inven.Agregar()
