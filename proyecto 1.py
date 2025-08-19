@@ -1,5 +1,5 @@
 Dic_inventario={}
-def main(inve):
+def main():
     inven = Inventario()
     order = Ordenar()
     bus = Buscar()
