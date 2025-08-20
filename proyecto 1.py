@@ -26,7 +26,6 @@ def main():
                         Submenu()
                         ordenar = int(input("Ingrese una opción: "))
 
-                        # listas de atributos a ordenar
                         lista_nombre = [p.nombre for p in Dic_inventario.values()]
                         lista_stock = [p.stock for p in Dic_inventario.values()]
                         lista_precio = [p.precio for p in Dic_inventario.values()]
