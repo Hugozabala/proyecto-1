@@ -3,7 +3,7 @@ def main():
     inven = Inventario()
     order = Ordenar()
     bus = Buscar()
-    menus = Menus()
+
     op = 0
     while op != 6:
         try:
@@ -19,57 +19,51 @@ def main():
                 case 1:
                      inven.Agregar()
                 case 2:
-                    if not Dic_inventario:
-                        print("\n Inventario vacío.")
+                    Submenu()
+                    ordenar=int(input("Ingrese una opción"))
+                    lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
+                    lista_stock = [inventario["stock"] for inventario in Dic_inventario.values()]
+                    lista_precio = [inventario["precio"] for inventario in Dic_inventario.values()]
+                    if ordenar == 1:
+                        listaordenada=[order.quicksort(lista_nombre)]
+                    elif ordenar == 2:
+                        listaordenada=[order.quicksort(lista_precio)]
+                    elif ordenar == 3:
+                        listaordenada=[order.quicksort(lista_stock)]
+
+                    if not listaordenada:
+                        print("\n Inventario actual:")
+                        for producto in Dic_inventario.values():
+                            producto.Mostrar()
                     else:
-                        menus.Submenu()
-                        ordenar = int(input("Ingrese una opción: "))
-                        lista_nombre = [p.nombre for p in Dic_inventario.values()]
-                        lista_stock = [p.stock for p in Dic_inventario.values()]
-                        lista_precio = [p.precio for p in Dic_inventario.values()]
-                        if ordenar == 1:
-                            listaordenada = order.quicksort(lista_nombre)
-                        elif ordenar == 2:
-                            listaordenada = order.quicksort(lista_precio)
-                        elif ordenar == 3:
-                            listaordenada = order.quicksort(lista_stock)
-                        else:
-                            print("Opción inválida.")
-                            listaordenada = []
-
-                        print("\nInventario ordenado:\n")
-                        for valor in listaordenada:
-                            for producto in Dic_inventario.values():
-                                    if (ordenar == 1 and producto.nombre == valor) or (ordenar == 2 and producto.precio == valor) or(ordenar == 3 and producto.stock == valor):
-                                        producto.Mostrar()
-
+                        print(" Inventario vacío.")
 
                 case 3:
-                    menus.SubmenuBuscador()
-                    buscar= int(input("Ingrese una opción: "))
+                    SubmenuBuscador()
+                    buscar= int(input("Ingrese una opción"))
                     valor_a_buscar = input("Ingrese valor a buscar")
                     lista_nombre = [inventario["nombre"] for inventario in Dic_inventario.values()]
                     lista_codigo = list(Dic_inventario.keys())
                     lista_categoria= [inventario["categoria"] for inventario in Dic_inventario.values()]
                     if buscar==1:
-                        bus.Buscardor(lista_codigo,valor_a_buscar)
+                        bus.Buscardor(lista_codigo,buscar,valor_a_buscar)
                     elif buscar==2:
-                        bus.Buscardor(lista_nombre, valor_a_buscar)
+                        bus.Buscardor(lista_nombre, buscar, valor_a_buscar)
                     elif buscar==3:
-                        bus.Buscardor(lista_categoria, valor_a_buscar)
+                        bus.Buscardor(lista_categoria, buscar, valor_a_buscar)
 
                 case 4:
                     inven.eliminar()
                 case 5:
                     inven.actualizar()
                 case 6:
-                    print("Fin de programa  ")
+                    print("Fin de programa")
                 case _:
-                    print("Opcion no valida  ")
+                    print("Opcion no valida")
         except ValueError:
-            print("Ingrese opcion valida  ")
-        except Exception as a:
-            print(f"Error: {a}")
+            print("Ingrese opcion valida")
+        except Exception:
+            print(f"Error: {Exception}")
 
 
 class Producto:
@@ -97,16 +91,21 @@ class Ordenar:
         return self.quicksort(menores) + iguales + self.quicksort(mayores)
 
 class Buscar:
-    def Buscardor(self, lista, valor):
+    def Buscardor(self, lista, criterio, valor):
         resultados = []
         valor = valor.lower().strip()
+
         for producto in lista:
-            if producto == valor:
-                resultados.append(producto)
-            if valor in producto.lower():
-                resultados.append(producto)
-            if valor in producto.lower():
-                resultados.append(producto)
+            if criterio == 1:
+                if producto.codigo == valor:
+                    resultados.append(producto)
+            elif criterio == 2:
+                if valor in producto.nombre.lower():
+                    resultados.append(producto)
+            elif criterio == 3:
+                if valor in producto.categoria.lower():
+                    resultados.append(producto)
+
         return resultados
 
 class Inventario:
@@ -114,6 +113,7 @@ class Inventario:
             try:
                 agre=int(input("cuantos productos desea ingresar"))
                 for a in range(agre):
+
                      cod = input("Ingrese código del producto: ")
                      if cod in Dic_inventario:
                         print(" Ya existe un producto con ese código.")
@@ -127,7 +127,7 @@ class Inventario:
                 else:
                      sto = int(input("Ingrese cantidad del producto: "))
 
-                p = Producto(cod, nom.lower(), cat, pre, sto)
+                p = Producto(cod, nom, cat, pre, sto)
                 Dic_inventario[cod] = p
                 print(" Producto agregado con éxito.")
             except ValueError:
@@ -148,20 +148,17 @@ class Inventario:
             print(f"producto Eliminado{eliminado}")
             print("eliminado con exito")
 
+def Submenu():
+    print("\nFormas de ordenar el inventario")
+    print("1. Por Nombre")
+    print("2. Por Precio")
+    print("3. Por Stock")
 
-class Menus:
-    def Submenu(self):
-        print("\nFormas de ordenar el inventario")
-        print("1. Por Nombre")
-        print("2. Por Precio")
-        print("3. Por Stock")
-
-    def SubmenuBuscador(self):
-        print("\nFormas de buscar el producto")
-        print("1. Por Código")
-        print("2. Por Nombre")
-        print("3. Por Categoria")
-
+def SubmenuBuscador():
+    print("\nFormas de buscar el producto")
+    print("1. Por Código")
+    print("2. Por Nombre")
+    print("3. Por Categoria")
 
 
 main()
