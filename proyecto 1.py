@@ -21,7 +21,6 @@ def main():
                         lista_nombre = [p.nombre for p in Dic_inventario.values()]
                         lista_stock = [p.stock for p in Dic_inventario.values()]
                         lista_precio = [p.precio for p in Dic_inventario.values()]
-
                         if ordenar == 1:
                             listaordenada = order.quicksort(lista_nombre)
                         elif ordenar == 2:
@@ -31,16 +30,11 @@ def main():
                         else:
                             print("Opción inválida.")
                             listaordenada = []
-
                         print("\nInventario ordenado:\n")
                         for valor in listaordenada:
                             for producto in Dic_inventario.values():
-                                if (ordenar == 1 and producto.nombre == valor) or \
-                                        (ordenar == 2 and producto.precio == valor) or \
-                                        (ordenar == 3 and producto.stock == valor):
+                                if (ordenar == 1 and producto.nombre == valor) or (ordenar == 2 and producto.precio == valor) or (ordenar == 3 and producto.stock == valor):
                                     producto.Mostrar()
-
-
                 case 3:
                     if not Dic_inventario:
                         print("\nInventario vacío.")
