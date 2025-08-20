@@ -125,7 +125,7 @@ class Buscar:
 class Inventario:
     def Agregar(self):
             try:
-                agre=int(input("cuantos productos desea ingresar"))
+                agre=int(input("Cuantos productos desea ingresar:  "))
                 for a in range(agre):
 
                      cod = input("Ingrese código del producto: ")
