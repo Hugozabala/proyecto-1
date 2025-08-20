@@ -3,30 +3,21 @@ def main():
     inven = Inventario()
     order = Ordenar()
     bus = Buscar()
-
+    menus=Menus()
     op = 0
     while op != 6:
         try:
-            print("\nMenu principal")
-            print("1. Ingreso de producto")
-            print("2. Listar Inventario")
-            print("3. Buscar producto")
-            print("4. Eliminar producto")
-            print("5. Modificar producto")
-            print("6. Salir ")
+            menus.MenuPrincipal()
             op=int(input("Ingrese opcion a ejecutar:   "))
             match op:
                 case 1:
                      inven.Agregar()
-
                 case 2:
                     if not Dic_inventario:
                         print("\n Inventario vacío.")
                     else:
-                        Submenu()
+                        menus.Submenu()
                         ordenar = int(input("Ingrese una opción: "))
-
-                        # listas de atributos a ordenar
                         lista_nombre = [p.nombre for p in Dic_inventario.values()]
                         lista_stock = [p.stock for p in Dic_inventario.values()]
                         lista_precio = [p.precio for p in Dic_inventario.values()]
@@ -54,7 +45,7 @@ def main():
                     if not Dic_inventario:
                         print("\nInventario vacío.")
                     else:
-                        SubmenuBuscador()
+                        menus.SubmenuBuscador()
                         buscar = int(input("Ingrese una opción: "))
                         valor_a_buscar = input("Ingrese valor a buscar: ")
 
@@ -192,18 +183,27 @@ class Inventario:
             print(f"producto Eliminado{eliminado.nombre}")
             print("eliminado con exito")
 
-def Submenu():
-    print("\nFormas de ordenar el inventario")
-    print("1. Por Nombre")
-    print("2. Por Precio")
-    print("3. Por Stock")
+class Menus:
+    def Submenu(self):
+        print("\nFormas de ordenar el inventario")
+        print("1. Por Nombre")
+        print("2. Por Precio")
+        print("3. Por Stock")
 
-def SubmenuBuscador():
-    print("\nFormas de buscar el producto")
-    print("1. Por Código")
-    print("2. Por Nombre")
-    print("3. Por Categoria")
+    def SubmenuBuscador(self):
+        print("\nFormas de buscar el producto")
+        print("1. Por Código")
+        print("2. Por Nombre")
+        print("3. Por Categoria")
 
+    def MenuPrincipal(self):
+        print("\nMenu principal")
+        print("1. Ingreso de producto")
+        print("2. Listar Inventario")
+        print("3. Buscar producto")
+        print("4. Eliminar producto")
+        print("5. Modificar producto")
+        print("6. Salir ")
 
 main()
 
