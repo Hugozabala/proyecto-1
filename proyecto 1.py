@@ -120,17 +120,17 @@ class Inventario:
 
                      nom = input("Ingrese nombre del producto: ")
                      cat = input("Ingrese categoría: ")
-                     pre = float(input("Ingrese precio del producto: "))
+                     pre = float(input("Ingrese precio del producto (Q): "))
                      if pre <=0:
-                        print("precio invalido")
+                        print("Precio invalido ")
                      else:
                         sto = int(input("Ingrese cantidad del producto: "))
 
                      p = Producto(cod, nom, cat, pre, sto)
                      Dic_inventario[cod] = p
-                     print(" Producto agregado con éxito.")
+                     print(" Producto agregado con éxito.\n")
             except ValueError:
-                print("Error: Ingresaste un dato inválido.")
+                print("Error: Ingresaste un dato inválido.\n")
 
     def actualizar(self):
         codigo = input("Ingrese el código del producto a actualizar: ")
@@ -164,18 +164,18 @@ class Inventario:
             producto.Mostrar()
 
         except ValueError:
-            print("Error: dato inválido, no se realizaron cambios.")
+            print("Error: dato inválido, no se realizaron cambios.\n")
 
 
 
     def eliminar(self,codigo=None):
-        eli=input("ingrese codigo de producto a eliminar")
+        eli=input("Ingrese codigo de producto a eliminar:  ")
         if eli   not in Dic_inventario:
-            print("no existe en dicionario")
+            print("No existe en dicionario\n")
         else:
             eli=Dic_inventario.pop(eli)
-            print(f"producto Eliminado:  {eli.nombre}  ")
-            print("eliminado con exito")
+            print(f"Producto Eliminado:  {eli.nombre}  ")
+            print("Eliminado con exito\n")
 
 class Menus:
     def Submenu(self):
